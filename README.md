@@ -1,66 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# SenaAccess
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Sistema de control de acceso e ingreso para el SENA**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplicación web full-stack que permite gestionar el ingreso de personas y equipos a las instalaciones del SENA, con roles diferenciados (Administrador e Instructor), chatbot integrado y notificaciones por correo electrónico.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Integrantes
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Sebastián Andrés Arcos: Desarrollador 
+- Andrés Felipe Volverás: Desarrollador 
+- Laura Medina: Desarrolladora 
+- Katherin Fernández: Desarrolladora 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Descripción
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+SenaAccess es una plataforma web diseñada para automatizar y controlar el acceso a las instalaciones del SENA. El sistema permite:
 
-### Premium Partners
+- **Registro de ingresos** de personas con identificación y seguimiento en tiempo real.
+- **Control de equipos** — registro de entrada y salida de dispositivos electrónicos.
+- **Gestión de novedades** — reporte y seguimiento de incidencias.
+- **Chatbot integrado** para asistencia rápida a los usuarios.
+- **Recuperación de contraseña** mediante código enviado por correo electrónico.
+- **Roles y permisos** diferenciados para Administradores e Instructores.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## Tecnologías
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+- **Frontend** React JS, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS 
+- **Backend** Laravel 11, PHP 8.2+ 
+- **Base de datos** MySQL 8 
+- **Bundler** Vite 
+- **Autenticación** Laravel Sanctum (SPA + API tokens) 
+| **Correo** | Laravel Mail (SMTP) |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Requisitos Previos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Requisitos para tener instalado:
 
-## License
+- PHP >= 8.2
+- Composer >= 2.x
+- Node.js >= 18.x y npm >= 9.x
+- MySQL >= 8.0
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+---
+
+## Instalación
+
+
+### 1. Configurar el Backend (Laravel)
+
+```bash
+# Instalar dependencias de PHP
+composer install
+
+# Copiar el archivo de variables de entorno
+cp documentacion/env-ejemplo.txt .env
+
+# Generar la clave de la aplicación
+php artisan key:generate
+
+# Ejecutar las migraciones y seeders
+php artisan migrate --seed
+
+# Iniciar el servidor de desarrollo
+php artisan serve
+```
+
+> El backend estará disponible en `http://localhost:8000`
+
+### 2. Configurar el Frontend (React + Vite)
+
+```bash
+# Instalar dependencias de JavaScript
+npm install
+
+# Iniciar el servidor de desarrollo de Vite
+npm run dev
+```
+
+> El frontend estará disponible en `http://localhost:5173`
+
+---
+
+## Variables de Entorno
+
+Copia el archivo de ejemplo y configura las variables según tu entorno local:
+
+```bash
+cp documentacion/env-ejemplo.txt .env
+```
+
+Las variables principales a configurar son:
+
+- `DB_HOST` Host de la base de datos `127.0.0.1` 
+- `DB_PORT` Puerto de MySQL  `3306` 
+- `DB_DATABASE` Nombre de la base de datos  `senaaccess` 
+- `DB_USERNAME` Usuario de la base de datos  `root` 
+- `DB_PASSWORD` Contraseña de la base de datos  `""` 
+- `MAIL_MAILER` Driver de correo `smtp` 
+- `MAIL_HOST`  Host del servidor SMTP `smtp.gmail.com` 
+- `MAIL_PORT`  Puerto SMTP  `587` 
+- `GEMINI_API_KEY`  API Key de Gemini 
+- `CLOUDINARY_URL`  Cloudinary URL  `cloudinary://api_key:api_secret@cloud_name` 
+
+
+
+
+---
+
+## Estructura del Proyecto
+
+```
+SenaAccessFinal/
+├── app/
+│   ├── Http/Controllers/        # AuthController, ChatbotController, EquipmentController,
+│   │                            # NovedadController, UserController
+│   ├── Http/Middleware/          # Filtros: Admin, Instructor, Sanctum
+│   ├── Mail/                    # RecoveryCodeMail.php
+│   └── Models/                  # User, Role, Ingreso, IngresoEquipo, Novedad
+├── bootstrap/                   # Arranque del framework y caché
+├── config/                      # services, auth, database, sanctum
+├── database/
+│   ├── migrations/              # Migraciones del esquema
+│   └── seeders/                 # DatabaseSeeder.php (datos iniciales)
+├── documentacion/               # Manual, borrador, modelo relacional, env-ejemplo
+├── public/                      # index.php, íconos y assets estáticos
+├── resources/
+│   ├── css/app.css              # Estilos personalizados
+│   ├── js/                      # app.jsx, bootstrap.js y components/
+│   └── views/                   # Plantillas Blade (emails, welcome)
+├── routes/
+│   ├── api.php                  # Rutas de la API REST
+│   └── web.php                  # Ruta comodín → SPA
+├── storage/                     # Archivos generados, logs y caché
+├── tests/                       # Pruebas automatizadas (PHPUnit)
+├── .env.example                 # Plantilla de variables de entorno
+├── artisan                      # Consola CLI de Laravel
+├── composer.json                # Dependencias de PHP
+├── package.json                 # Dependencias de JavaScript
+├── phpunit.xml                  # Configuración de PHPUnit
+├── vite.config.js               # Configuración de Vite + React
+└── README.md                    # Este archivo
+```
+
+
+
+
+
+---
+
+## Licencia
+
+Este proyecto fue desarrollado con fines académicos como parte del programa de formación del **Servicio Nacional de Aprendizaje (SENA)**.
+
+---
+
+
